@@ -45,7 +45,8 @@ apt-get install nfs-kernel-server
 chown nobody:nogroup /var/www/html/wp-content
 
 # Editar archivo /etc/exports
-cd ~
+cd /etc
+rm -R exports
 cp practica-8/exports /etc/
 
 # Reiniciamos Servicio NFS
