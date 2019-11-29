@@ -1,0 +1,1 @@
+/var/www/html/wp-content      54.86.208.128(rw,sync,no_root_squash,no_subtree_check)
