@@ -47,6 +47,7 @@ chown nobody:nogroup /var/www/html/wp-content
 # Editar archivo /etc/exports
 cd /etc
 rm -R exports
+cd ~
 cp practica-8/exports /etc
 
 # Reiniciamos Servicio NFS

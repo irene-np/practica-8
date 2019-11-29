@@ -34,4 +34,8 @@ sed -i "s/localhost/35.172.114.64/" config.php
 apt-get update
 apt-get install nfs-common
 
+# Crear punto de montaje Cliente NFS
+mount 35.173.135.21:/var/www/html/wp-content /var/www/html/wp-content
+
+
 
