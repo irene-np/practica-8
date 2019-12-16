@@ -28,14 +28,21 @@ chown www-data:www-data * -R
 
 # configurar el archivo config.php
 cd /var/www/html/iaw-practica-lamp/src/
-sed -i "s/localhost/35.172.114.64/" config.php
+sed -i "s/localhost/54.210.32.185/" config.php
 
 # Intalación de paquetes cliente NFS
 apt-get update
 apt-get install nfs-common
 
 # Crear punto de montaje Cliente NFS
-mount 35.173.135.21:/var/www/html/wp-content /var/www/html/wp-content
+mount 54.210.32.185:/var/www/html/wp-content /var/www/html/wp-content
+
+# Montar directorio NFS
+cd /etc
+rm -r fstab
+cp practica-8/fstab.sh /etc
+
+
 
 
 
