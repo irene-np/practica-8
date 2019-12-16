@@ -40,6 +40,7 @@ mount 54.210.32.185:/var/www/html/wp-content /var/www/html/wp-content
 # Montar directorio NFS
 cd /etc
 rm -r fstab
+cd ~
 cp practica-8/fstab.sh /etc
 
 
