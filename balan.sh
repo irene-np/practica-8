@@ -40,7 +40,7 @@ a2enmod lbmethod_byrequests
 
 # copiamos el archivo  000-default.conf
 cd ~
-cp practica-5/000-default.conf /etc/apache2/sites-enabled/
+cp practica-8/000-default.conf /etc/apache2/sites-enabled/
 
 # Reiniciamos el apache
-sudo /etc/init.d/apache2 restart
+/etc/init.d/apache2 restart

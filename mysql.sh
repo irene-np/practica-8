@@ -24,23 +24,16 @@ chown www-data:www-data * -R
 # configuración mysql
 cd /etc/mysql/mysql.conf.d
 sed -i "s/127.0.0.1/0.0.0.0/" mysqld.cnf
-
-# Configuramos la aplicacion web
-DB_NAME=lamp_db
-DB_USER=lamp_user
-DB_PASSWD=lamp_user
-mysql -u root -p$DB_ROOT_PASSWD <<< "DROP DATABASE IF EXISTS $DB_NAME;"
-mysql -u root -p$DB_ROOT_PASSWD <<< "CREATE DATABASE $DB_NAME;"
-mysql -u root -p$DB_ROOT_PASSWD <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO $DB_USER@'%' IDENTIFIED BY '$DB_PASSWD';"
-mysql -u root -p$DB_ROOT_PASSWD <<< "FLUSH PRIVILEGES"
-
-mysql -u root -p$DB_ROOT_PASSWD < /home/ubuntu/iaw-practica-lamp/db/database.sql
+systemctl restart mysql
 
 # Configuramos mysql para Wordpress
-DB_NAME=wordpres_db
-DB_USER=wordpres
-DB_PASSWD=Celia20
+DB_NAME=wordpress
+DB_USER=wordpress
+DB_PASSWD=wordpress
 mysql -u root -p$DB_ROOT_PASSWD <<< "DROP DATABASE IF EXISTS $DB_NAME;"
 mysql -u root -p$DB_ROOT_PASSWD <<< "CREATE DATABASE $DB_NAME;"
 mysql -u root -p$DB_ROOT_PASSWD <<< "GRANT ALL PRIVILEGES ON $DB_NAME.* TO $DB_USER@'%' IDENTIFIED BY '$DB_PASSWD';"
 mysql -u root -p$DB_ROOT_PASSWD <<< "FLUSH PRIVILEGES"
+
+#Reiniciamos el servicio mysql
+systemctl restart mysql
