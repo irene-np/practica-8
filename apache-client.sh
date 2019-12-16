@@ -35,13 +35,15 @@ apt-get update
 apt-get install nfs-common
 
 # Crear punto de montaje Cliente NFS
-mount 54.210.32.185:/var/www/html/wp-content /var/www/html/wp-content
+cd /var/www/html
+mkdir wp-content
+mount 54.210.32.185: /var/www/html/wp-content /var/www/html/wp-content
 
 # Montar directorio NFS
 cd /etc
 rm -R fstab
 cd ~
-cp practica-8/fstab.sh /etc
+cp practica-8/fstab /etc
 
 
 
