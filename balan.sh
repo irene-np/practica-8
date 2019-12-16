@@ -26,24 +26,21 @@ cd /var/www/html
 git clone https://github.com/josejuansanchez/iaw-practica-lamp.git
 chown www-data:www-data * -R
 
-# configurar el archivo config.php
-cd /var/www/html/iaw-practica-lamp/src/
-sed -i "s/localhost/54.210.32.185/" config.php
+# Activamos los modulos
+a2enmod proxy
+a2enmod proxy_http
+a2enmod proxy_ajp
+a2enmod rewrite
+a2enmod deflate
+a2enmod headers
+a2enmod proxy_balancer
+a2enmod proxy_connect
+a2enmod proxy_html
+a2enmod lbmethod_byrequests
 
-# Intalación de paquetes cliente NFS
-apt-get update
-apt-get install nfs-common
-
-# Crear punto de montaje Cliente NFS
-mount 54.210.32.185:/var/www/html/wp-content /var/www/html/wp-content
-
-# Montar directorio NFS
-cd /etc
-rm -R fstab
+# copiamos el archivo  000-default.conf
 cd ~
-cp practica-8/fstab.sh /etc
+cp practica-5/000-default.conf /etc/apache2/sites-enabled/
 
-
-
-
-
+# Reiniciamos el apache
+sudo /etc/init.d/apache2 restart
