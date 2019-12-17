@@ -24,11 +24,6 @@ apt-get install git -y
 apt-get install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 apt-get install php-fpm php-mysql -y
 
-# Configuracion de index
-cd ~
-rm -rf practica-8
-cp practica-8/000-default.conf /etc/apache2/sites-available/
-
 
 # Configuración de php-fpm
 cd /etc/php/7.2/fpm/
@@ -64,7 +59,7 @@ echo "/var/www/html/      18.233.224.39(rw,sync,no_root_squash,no_subtree_check)
 
 
 # Reiniciamos el servicio nfs-kernel-server
-sudo /etc/init.d/nfs-kernel-server restart
+ /etc/init.d/nfs-kernel-server restart
 
 # Dirección del sitio y direccion URL
 cd /var/www/html/
@@ -86,7 +81,8 @@ mkdir /var/www/html/wp-content/uploads -p
 # Security Keys
 
 #Borramos las keys 
-sed -i '/AUTH_KEY/d' wp-config.php
+cd /var/www/html/wordpress/
+sed -i '/AUTH_KEY/d'varwp-config.php
 sed -i '/LOGGED_IN_KEY/d' wp-config.php
 sed -i '/NONCE_KEY/d' wp-config.php
 sed -i '/AUTH_SALT/d' wp-config.php
@@ -97,4 +93,4 @@ sed -i '/NONCE_SALT/d' wp-config.php
 #Añadimos las keys
 CLAVES=$(curl https://api.wordpress.org/secret-key/1.1/salt/)
 CLAVES=$(echo $CLAVES | tr / _)
-sed -i "/#@-/a $CLAVES" /var/www/html/wp-config.php
+sed -i "/#@-/a $CLAVES" /var/www/html/wordpress/wp-config.php
