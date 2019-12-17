@@ -88,4 +88,4 @@ sed -i '/NONCE_SALT/d' wp-config.php
 #Añadimos las keys
 CLAVES=$(curl https://api.wordpress.org/secret-key/1.1/salt/)
 CLAVES=$(echo $CLAVES | tr / _)
-sed -i "/#@-/a $CLAVES" /var/www/html/wordpress/wp-config.php
+sed -i "/#@-/a $CLAVES" /var/www/html/wp-config.php
