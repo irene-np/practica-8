@@ -59,12 +59,8 @@ echo "/var/www/html/      18.233.224.39(rw,sync,no_root_squash,no_subtree_check)
 
 # Dirección del sitio y direccion URL
 cd /var/www/html/
-echo "define( 'WP_SITEURL', 'http://54.167.47.223' );" >> wp-config.php
+echo "define( 'WP_SITEURL', 'http://54.167.47.223/wordpress' );" >> wp-config.php
 echo "define( 'WP_HOME', 'http://54.167.47.223' );" >> wp-config.php
-
-# Configuración de WordPress en un directorio que no es el raíz 
-cd /var/www/html/
-sed -i 's#wp-blog-header.php#wordpress/wp-blog-header.php#' index.php
 
 # Creamos un archivo .htaccess
 cd practica-8
