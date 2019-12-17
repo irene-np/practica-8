@@ -39,6 +39,7 @@ tar -zxvf latest.tar.gz
 # Modificamos el archivo wp-config-example.php
 mv /var/www/html/wordpress/* /var/www/html
 mv wp-config-sample.php wp-config.php
+cd /var/www/html
 sed -i 's/database_name_here/wordpress/' wp-config.php
 sed -i 's/username_here/wordpress/' wp-config.php
 sed -i 's/password_here/wordpress/' wp-config.php
@@ -67,7 +68,6 @@ echo "define( 'WP_SITEURL', 'http://54.167.47.223' );" >> wp-config.php
 echo "define( 'WP_HOME', 'http://54.167.47.223' );" >> wp-config.php
 
 # Configuración de WordPress en un directorio que no es el raíz 
-cp /var/www/html/wordpress/index.php /var/www/html/index.php
 cd /var/www/html/
 sed -i 's#wp-blog-header.php#wordpress/wp-blog-header.php#' index.php
 
@@ -81,7 +81,7 @@ mkdir /var/www/html/wp-content/uploads -p
 # Security Keys
 
 #Borramos las keys 
-cd /var/www/html/wordpress/
+cd /var/www/html/
 sed -i '/AUTH_KEY/d' wp-config.php
 sed -i '/LOGGED_IN_KEY/d' wp-config.php
 sed -i '/NONCE_KEY/d' wp-config.php
