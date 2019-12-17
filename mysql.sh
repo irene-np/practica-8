@@ -37,3 +37,9 @@ mysql -u root -p$DB_ROOT_PASSWD <<< "FLUSH PRIVILEGES"
 
 #Reiniciamos el servicio mysql
 systemctl restart mysql
+
+# Instalamos la aplicacion
+cd ~
+rm -r iaw-practica-lamp
+git clone https://github.com/josejuansanchez/iaw-practica-lamp.git
+chown www-data:www-data * -R

@@ -10,6 +10,8 @@ apt-get install apache2 -y
 #Instalamos paquetes para apache
 apt-get install php libapache2-mod-php php-mysql -y
 
+
+
 #Instalamos adminer
 cd /var/www/html
 mkdir adminer
@@ -23,6 +25,7 @@ apt-get install git -y
 # Instalación de php-fpm y php-mysql
 apt-get install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip -y
 apt-get install php-fpm php-mysql -y
+
 
 # Descargamos Wordpress
 cd /var/www/html
@@ -59,15 +62,11 @@ echo "/var/www/html/      18.233.224.39(rw,sync,no_root_squash,no_subtree_check)
 
 # Dirección del sitio y direccion URL
 cd /var/www/html/
-echo "define( 'WP_SITEURL', 'http://54.167.47.223/wordpress' );" >> wp-config.php
+echo "define( 'WP_SITEURL', 'http://54.167.47.223' );" >> wp-config.php
 echo "define( 'WP_HOME', 'http://54.167.47.223' );" >> wp-config.php
 
-# Creamos un archivo .htaccess
-cd practica-8
-cp practia-8/.htaccess /var/www/html/.htaccess
-
 #Creamos uploads
-mkdir /var/www/html/wp-content/uploads -p
+mkdir /var/www/html/uploads -p
 
 # Security Keys
 
