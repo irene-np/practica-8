@@ -82,7 +82,7 @@ mkdir /var/www/html/wp-content/uploads -p
 
 #Borramos las keys 
 cd /var/www/html/wordpress/
-sed -i '/AUTH_KEY/d'varwp-config.php
+sed -i '/AUTH_KEY/d' wp-config.php
 sed -i '/LOGGED_IN_KEY/d' wp-config.php
 sed -i '/NONCE_KEY/d' wp-config.php
 sed -i '/AUTH_SALT/d' wp-config.php
