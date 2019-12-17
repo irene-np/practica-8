@@ -10,8 +10,6 @@ apt-get install apache2 -y
 #Instalamos paquetes para apache
 apt-get install php libapache2-mod-php php-mysql -y
 
-
-
 #Instalamos adminer
 cd /var/www/html
 mkdir adminer
@@ -47,10 +45,10 @@ sed -i 's/localhost/52.23.209.106/' wp-config.php
 chown www-data:www-data * -R
 
 # Instalamos el servidor NFS
-sudo apt-get install nfs-kernel-server -y
+ apt-get install nfs-kernel-server -y
 
 # Cambiamos los permisos al directorio que vamos a compartir
-sudo chown nobody:nogroup /var/www/html/
+ chown nobody:nogroup /var/www/html/
 
 # Editamos el archivo /etc/exports
 cd /etc/
