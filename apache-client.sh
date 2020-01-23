@@ -3,7 +3,7 @@
 apt-get update
 
 # 2. Instalar apache2
-sudo apt-get install apache2 -y
+apt-get install apache2 -y
 
 # Arrancar el apache2
 systemctl start apache2 -y

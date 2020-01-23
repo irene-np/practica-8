@@ -55,3 +55,30 @@ cp practica-8/exports /etc
 
 # Abrirmos puerto 2049 en la maquina
 
+# Reiniciamos el servicio nfs-kernel-server
+ /etc/init.d/nfs-kernel-server restart
+
+# Dirección del sitio y direccion URL
+cd /var/www/html/
+echo "define( 'WP_SITEURL', 'http://54.167.47.223' );" >> wp-config.php
+echo "define( 'WP_HOME', 'http://54.167.47.223' );" >> wp-config.php
+
+#Creamos uploads
+mkdir /var/www/html/uploads -p
+
+# Security Keys
+
+#Borramos las keys 
+cd /var/www/html/
+sed -i '/AUTH_KEY/d' wp-config.php
+sed -i '/LOGGED_IN_KEY/d' wp-config.php
+sed -i '/NONCE_KEY/d' wp-config.php
+sed -i '/AUTH_SALT/d' wp-config.php
+sed -i '/SECURE_AUTH_SALT/d' wp-config.php
+sed -i '/LOGGED_IN_SALT/d' wp-config.php
+sed -i '/NONCE_SALT/d' wp-config.php
+
+#Añadimos las keys
+CLAVES=$(curl https://api.wordpress.org/secret-key/1.1/salt/)
+CLAVES=$(echo $CLAVES | tr / _)
+sed -i "/#@-/a $CLAVES" /var/www/html/wp-config.php
