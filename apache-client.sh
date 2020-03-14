@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 # Actualizar PC
 apt-get update
 
