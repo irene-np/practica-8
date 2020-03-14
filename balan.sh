@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 # Actualizar PC
 apt-get update
 
@@ -40,7 +41,7 @@ a2enmod lbmethod_byrequests
 
 # copiamos el archivo  000-default.conf
 cd ~
-cp practica-8/000-default.conf /etc/apache2/sites-enabled/
+cp practica-8/000-default.conf /etc/apache2/sites-available/
 
 # Reiniciamos el apache
 /etc/init.d/apache2 restart
